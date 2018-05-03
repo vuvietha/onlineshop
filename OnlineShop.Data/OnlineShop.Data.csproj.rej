@@ -1,0 +1,14 @@
+diff a/OnlineShop.Data/OnlineShop.Data.csproj b/OnlineShop.Data/OnlineShop.Data.csproj	(rejected hunks)
+@@ -74,6 +74,12 @@
+     <Compile Include="Repositories\PostTagRepository.cs" />
+     <Compile Include="Repositories\ProductCategoryRepository.cs" />
+     <Compile Include="Repositories\ProductRepository.cs" />
++    <Compile Include="Repositories\ProductTagRepository.cs" />
++    <Compile Include="Repositories\SlideRepository.cs" />
++    <Compile Include="Repositories\SupportOnlineRepository.cs" />
++    <Compile Include="Repositories\SystemConfigRepository.cs" />
++    <Compile Include="Repositories\TagRepository.cs" />
++    <Compile Include="Repositories\VisitorStatisticRepository.cs" />
+   </ItemGroup>
+   <ItemGroup>
+     <None Include="App.config" />
