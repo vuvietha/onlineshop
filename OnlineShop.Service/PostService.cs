@@ -1,37 +1,42 @@
 ﻿using OnlineShop.Data.Infrastructure;
 using OnlineShop.Data.Repositories;
 using OnlineShop.Model.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineShop.Service
 {
     public interface IPostService
     {
         void Add(Post post);
-        void Update(Post post);
-        void Delete(int id);
-        IEnumerable<Post> GetAll();
-        IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
-        Post GetById(int id);
-        IEnumerable<Post> GetAllByTagPaging(string tag,int page, int pageSize, out int totalRow);
-        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
-        void SaveChanges();
 
+        void Update(Post post);
+
+        void Delete(int id);
+
+        IEnumerable<Post> GetAll();
+
+        IEnumerable<Post> GetAllPaging(int page, int pageSize, out int totalRow);
+
+        Post GetById(int id);
+
+        IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow);
+
+        IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow);
+
+        void SaveChanges();
     }
+
     public class PostService : IPostService
     {
-        IPostRepository _postRepository;
-        IUnitOfWork _unitOfWork;
+        private IPostRepository _postRepository;
+        private IUnitOfWork _unitOfWork;
+
         public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
             _unitOfWork = unitOfWork;
-
         }
+
         public void Add(Post post)
         {
             _postRepository.Add(post);
@@ -44,15 +49,15 @@ namespace OnlineShop.Service
 
         public IEnumerable<Post> GetAll()
         {
-            return _postRepository.GetAll( new string[] {"PostCategory"});
+            return _postRepository.GetAll(new string[] { "PostCategory" });
         }
 
         public IEnumerable<Post> GetAllByCategoryPaging(int categoryId, int page, int pageSize, out int totalRow)
         {
-            return _postRepository.GetMultiPaging(x => x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] {"PostCategory" });
+            return _postRepository.GetMultiPaging(x => x.CategoryID == categoryId, out totalRow, page, pageSize, new string[] { "PostCategory" });
         }
 
-        public IEnumerable<Post> GetAllByTagPaging(string tag,int page, int pageSize, out int totalRow)
+        public IEnumerable<Post> GetAllByTagPaging(string tag, int page, int pageSize, out int totalRow)
         {
             //Todo
             return _postRepository.GetAllByTag(tag, page, pageSize, out totalRow);
@@ -76,7 +81,6 @@ namespace OnlineShop.Service
         public void Update(Post post)
         {
             _postRepository.Update(post);
-            
         }
     }
 }
