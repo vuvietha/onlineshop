@@ -60,9 +60,14 @@
     <Compile Include="Migrations\201805030913184_initDB.Designer.cs">
       <DependentUpon>201805030913184_initDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805041250350_ErrorTable.cs" />
+    <Compile Include="Migrations\201805041250350_ErrorTable.Designer.cs">
+      <DependentUpon>201805041250350_ErrorTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\FooterRepository.cs" />
     <Compile Include="Repositories\MenuGroupRepository.cs" />
     <Compile Include="Repositories\MenuRepository.cs" />
@@ -88,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805030913184_initDB.resx">
       <DependentUpon>201805030913184_initDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805041250350_ErrorTable.resx">
+      <DependentUpon>201805041250350_ErrorTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
