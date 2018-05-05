@@ -64,6 +64,10 @@
     <Compile Include="Migrations\201805041250350_ErrorTable.Designer.cs">
       <DependentUpon>201805041250350_ErrorTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805050558030_changePostCategoryTable.cs" />
+    <Compile Include="Migrations\201805050558030_changePostCategoryTable.Designer.cs">
+      <DependentUpon>201805050558030_changePostCategoryTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +100,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805041250350_ErrorTable.resx">
       <DependentUpon>201805041250350_ErrorTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805050558030_changePostCategoryTable.resx">
+      <DependentUpon>201805050558030_changePostCategoryTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

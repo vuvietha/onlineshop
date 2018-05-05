@@ -1,12 +1,14 @@
-﻿using OnlineShop.Model.Models;
+﻿using AutoMapper;
+using OnlineShop.Model.Models;
 using OnlineShop.Service;
 using OnlineShop.Web.Infrastructure.Core;
+using OnlineShop.Web.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using OnlineShop.Web.Infrastructure.Extensions;
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/postcategory")]
@@ -27,13 +29,15 @@ namespace OnlineShop.Web.Api
             {
                 //var listCategory = _postCategoryService.GetAll().ToList();
                 var listCategory = _postCategoryService.GetAll();
-                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategory);
+                var listCategoryVM = Mapper.Map<List<PostCategoryViewModel>>(listCategory);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listCategoryVM);
 
                 return response;
             });
         }
 
-        public HttpResponseMessage Post(HttpRequestMessage request, PostCategory postCategory)
+        [Route("add")]
+        public HttpResponseMessage Post(HttpRequestMessage request, PostCategoryViewModel postCategoryVM)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -44,7 +48,10 @@ namespace OnlineShop.Web.Api
                 }
                 else
                 {
-                    var category = _postCategoryService.Add(postCategory);
+                    //var postCategory = Mapper.Map<PostCategory>(postCategoryVM);
+                    var newPostCategory = new PostCategory();
+                    newPostCategory.UpdatePostCategory(postCategoryVM);
+                    var category = _postCategoryService.Add(newPostCategory);
                     _postCategoryService.SaveChanges();
                     response = request.CreateResponse(HttpStatusCode.Created, category);
                 }
@@ -52,7 +59,8 @@ namespace OnlineShop.Web.Api
             });
         }
 
-        public HttpResponseMessage Put(HttpRequestMessage request, PostCategory postCategory)
+        [Route("update")]
+        public HttpResponseMessage Put(HttpRequestMessage request, PostCategoryViewModel postCategoryVm)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -63,7 +71,9 @@ namespace OnlineShop.Web.Api
                 }
                 else
                 {
-                    _postCategoryService.Update(postCategory);
+                    var postCategoryDB = _postCategoryService.GetById(postCategoryVm.ID);
+                    postCategoryDB.UpdatePostCategory(postCategoryVm);
+                    _postCategoryService.Update(postCategoryDB);
                     _postCategoryService.SaveChanges();
                     response = request.CreateResponse(HttpStatusCode.OK);
                 }
