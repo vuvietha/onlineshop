@@ -25,7 +25,7 @@ namespace OnlineShop.Web.Infrastructure.Core
             HttpResponseMessage response = null;
             try
             {
-                function.Invoke();
+                response = function.Invoke();
             }
             catch (DbEntityValidationException ex)
             {
