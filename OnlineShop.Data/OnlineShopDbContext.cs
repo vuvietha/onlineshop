@@ -1,9 +1,10 @@
-﻿using OnlineShop.Model.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using OnlineShop.Model.Models;
 using System.Data.Entity;
 
 namespace OnlineShop.Data
 {
-    public class OnlineShopDbContext : DbContext
+    public class OnlineShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public OnlineShopDbContext() : base("OnlineShop")
         {
@@ -29,6 +30,10 @@ namespace OnlineShop.Data
         public DbSet<VisitorStatistic> VisitorStatistics { get; set; }
         public DbSet<Error> Errors { get; set; }
 
+        public static OnlineShopDbContext Create()
+        {
+            return new OnlineShopDbContext();
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
