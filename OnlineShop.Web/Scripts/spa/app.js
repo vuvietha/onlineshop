@@ -1,24 +1,26 @@
-﻿/// <reference path="../plugins/angular/angular.js" />
+﻿/// <reference path="onlineShopDirective.html" />
+/// <reference path="../plugins/angular/angular.js" />
 
 //create module
 var myApp = angular.module('myModule', []);
 
 //register the controller with the module
 myApp.controller("schoolController", schoolController);
-myApp.service("Validator", Validator)
+myApp.service("validatorService", validatorService)
+myApp.directive("onlineShopDirective", onlineShopDirective)
 //myApp.controller("myController", function ($scope) { $scope.message = "This is my message from controller"; });
 
 //inject $scope into myController like autofac mechanism in backend
 //myController.$inject = ['$scope'];
 
-schoolController.$inject = ['$scope', 'Validator'];
+schoolController.$inject = ['$scope', 'validatorService'];
 
 //Create controller
-function schoolController($scope, Validator) {
+function schoolController($scope, validatorService) {
     //Validator.checkNumber(2);
     //$scope.message = Validator.checkNumber(1);
     $scope.checkNumber = function () {
-        $scope.message = Validator.checkNumber(1);
+        $scope.message = validatorService.checkNumber(1);
     }
     $scope.num = 1;
 }
@@ -36,7 +38,7 @@ function schoolController($scope, Validator) {
 //    }
 //}
 
-function Validator($window) {
+function validatorService($window) {
     return {
         checkNumber: checkNumber
     }
@@ -46,5 +48,12 @@ function Validator($window) {
         } else {
             return "This is odd";
         }
+    }
+}
+
+function onlineShopDirective() {
+    return {
+        //template:"<h1>This is my first custom directive</h1>"
+        templateUrl : "/Scripts/spa/onlineShopDirective.html"
     }
 }
