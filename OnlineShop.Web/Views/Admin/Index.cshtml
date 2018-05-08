@@ -206,21 +206,21 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-pie-chart"></i>
                                 <p>
-                                    Charts
+                                    Sản phẩm
                                     <i class="right fa fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a ui-sref="product_categories" class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>ChartJS</p>
+                                        <p>Danh mục sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a ui-sref="products"  class="nav-link">
                                         <i class="fa fa-circle-o nav-icon"></i>
-                                        <p>Flot</p>
+                                        <p>Sản phẩm</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -499,8 +499,12 @@
     <script src="~/Assets/admin/libs/angular/angular.js"></script>
     <script src="~/Assets/admin/libs/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="~/app/shared/modules/onlineshop.common.js"></script>
+    <script src="~/app/shared/services/apiService.js"></script>
     <script src="~/app/components/products/products.module.js"></script>
+    <script src="~/app/components/product_categories/productCategories.module.js"></script>
     <script src="~/app/app.js"></script>
+    <script src="~/app/components/product_categories/productCategoryListController.js"></script>
+    <script src="~/app/components/product_categories/productCategoryAddController.js"></script>
     <script src="~/app/components/products/productAddController.js"></script>
     <script src="~/app/components/products/productListController.js"></script>
     <script src="~/app/components/home/homeController.js"></script>
