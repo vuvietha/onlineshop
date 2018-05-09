@@ -35,7 +35,7 @@
 
                 };
                 $scope.pagePlus = function (count) {
-                    return +$scope + count;
+                    return +$scope.page + count;
 
                 };
 

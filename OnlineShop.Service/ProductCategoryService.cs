@@ -2,6 +2,7 @@
 using OnlineShop.Data.Repositories;
 using OnlineShop.Model.Models;
 using System.Collections.Generic;
+using System;
 
 namespace OnlineShop.Service
 {
@@ -14,6 +15,8 @@ namespace OnlineShop.Service
         ProductCategory Delete(int id);
 
         IEnumerable<ProductCategory> GetAll();
+
+        IEnumerable<ProductCategory> GetAll(string keywork);
 
         IEnumerable<ProductCategory> GetAllByParentId(int parentId);
 
@@ -48,6 +51,13 @@ namespace OnlineShop.Service
         public IEnumerable<ProductCategory> GetAll()
         {
             return _productCategoryRepository.GetAll();
+        }
+
+        public IEnumerable<ProductCategory> GetAll(string keywork)
+        {
+            if (string.IsNullOrEmpty(keywork))
+                return _productCategoryRepository.GetAll();
+            return _productCategoryRepository.GetMulti(x => x.Name.ToLower().Contains(keywork.ToLower()) || x.Description.ToLower().Contains(keywork.ToLower()));
         }
 
         public IEnumerable<ProductCategory> GetAllByParentId(int parentId)

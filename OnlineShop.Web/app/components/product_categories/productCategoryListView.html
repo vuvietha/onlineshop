@@ -17,7 +17,7 @@
 <!-- Main content -->
 <section class="content">
     <!-- Default box -->
-    <div class="card">
+    <div class="card">   
         <div class="card-header">
             <h3 class="card-title">Danh mục sản phẩm</h3>
             <div class="card-tools">
@@ -29,10 +29,23 @@
                 </button>
             </div>
         </div>
+        
         <div class="card-body">
+            
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" ng-model ="keyword" placeholder="Từ khóa" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" ng-click="search()">Tìm kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                         <table class="table table-bordered">
                             <tr>
                                 <th style="width: 5%">ID</th>
