@@ -70,6 +70,20 @@ namespace OnlineShop.Web.Api
                 return response;
             });
         }
+        [Route("delete")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage Delete(HttpRequestMessage request, int id)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var oldProductCategory = _productCategoryService.Delete(id);
+                _productCategoryService.SaveChanges();
+                var responseData = Mapper.Map<ProductCategoryViewModel>(oldProductCategory);
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
         [Route("create")]
         [HttpPost]
         [AllowAnonymous]
