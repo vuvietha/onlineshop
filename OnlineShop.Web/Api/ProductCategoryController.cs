@@ -10,6 +10,8 @@ using AutoMapper;
 using OnlineShop.Model.Models;
 using OnlineShop.Web.Models;
 using OnlineShop.Web.Infrastructure.Extensions;
+using System.Web.Script.Serialization;
+
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/productcategory")]
@@ -81,6 +83,23 @@ namespace OnlineShop.Web.Api
                 _productCategoryService.SaveChanges();
                 var responseData = Mapper.Map<ProductCategoryViewModel>(oldProductCategory);
                 HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                return response;
+            });
+        }
+        [Route("deletemultiple")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage DeleteMultiple(HttpRequestMessage request, string checkedProductCategory)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                var listProductCategoryId = new JavaScriptSerializer().Deserialize<List<int>>(checkedProductCategory);
+                foreach(var item in listProductCategoryId)
+                {
+                    _productCategoryService.Delete(item);
+                }              
+                _productCategoryService.SaveChanges();              
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listProductCategoryId.Count);
                 return response;
             });
         }

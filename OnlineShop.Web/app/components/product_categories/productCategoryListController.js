@@ -13,7 +13,24 @@
         $scope.isAll = false;
         $scope.deleteMultiple = deleteMultiple;
         function deleteMultiple() {
+            var listId = [];
+            $.each($scope.selected, function (i,item) {
+                listId.push(item.ID);
+            });
+            $ngBootbox.confirm('Bạn có chắc muốn xóa').then(function () {
+                var config = {
+                    params: {
+                        checkedProductCategory: JSON.stringify(listId)
 
+                    }
+                }
+                apiService.del('api/productcategory/deletemultiple', config, function (result) {
+                    notificationService.displaySuccess('Xóa thành công ' + result.data + ' bản ghi');
+                    search();
+                }, function () {
+                    notificationService.displayError('Xóa không thành công');
+                });
+            });
         }
         function selectAll() {
             if ($scope.isAll === false) {
@@ -66,7 +83,7 @@
             var config = {
                 params: {
                     page: page,
-                    pageSize: 2,
+                    pageSize: 4,
                     keyword : $scope.keyword
 
                 }  
