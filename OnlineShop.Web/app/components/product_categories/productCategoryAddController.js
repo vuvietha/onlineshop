@@ -26,7 +26,7 @@
         }
         function AddProductCategory() {
             apiService.post('api/productcategory/create', $scope.productCategory, function (result) {
-                notificationService.displaySuccess("Thêm mới " + $scope.productCategory.Name + "thành công");
+                notificationService.displaySuccess("Thêm mới " + $scope.productCategory.Name + " thành công");
                 $state.go('product_categories');
             }, function (error) {
                 notificationService.diplayError("Thêm mới không thành công");
