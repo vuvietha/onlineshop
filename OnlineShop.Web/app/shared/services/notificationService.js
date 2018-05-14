@@ -42,7 +42,7 @@
         }
         return {
             displaySuccess: displaySuccess,
-            diplayError: displayError,
+            displayError: displayError,
             displayWarning: displayWarning,
             displayInfor: displayInfor
         }
