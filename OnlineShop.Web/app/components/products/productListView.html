@@ -3,11 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Trang chu</h1>
+                <h1>Sản phẩm</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
                     <li class="breadcrumb-item active">Sản phẩm</li>
                 </ol>
             </div>
@@ -29,12 +30,68 @@
                 </button>
             </div>
         </div>
+
         <div class="card-body">
-            
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" ng-model="keyword" placeholder="Từ khóa" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" ng-click="search()">Tìm kiếm</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-success" ui-sref="product_add">Thêm mới</button>
+                                <button class="btn btn-danger" ng-click="deleteMultiple()" id="btnDelete" disabled>Xóa</button>
+
+                            </div>
+
+                        </div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th><input type="checkbox" name="all" ng-click="selectAll()" /></th>
+                                <th style="width: 5%">ID</th>
+                                <th style="width: 50%">Tên sản phẩm</th>
+                                <th style="width: 20%">Ngày tạo</th>
+                                <th style="width: 10%">Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                            <tr ng-repeat="item in products">
+                                <td><input type="checkbox" ng-model="item.checked" name="all" value="" /></td>
+                                <td>{{item.ID}}</td>
+                                <td>{{item.Name}}</td>
+                                <td>
+                                    {{item.CreatedDate | date : 'dd/MM/yyyy hh:mm:ss'}}
+                                </td>
+                                <!--class="badge bg-danger"-->
+                                <td><span ng-class="{'badge bg-danger':item.Status==false,'badge bg-success':item.Status==true}">{{item.Status | statusFilter}}</span></td>
+                                <td>
+                                    <button class="btn-sm btn-primary" ui-sref="product_edit({id:item.ID})"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn-sm btn-danger" ng-click="deleteProduct(item.ID)"><i class="fa fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6"><span class="pull-right">Trang :{{page}} - Tổng số bản ghi: {{totalCount}}</span></td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-           
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getProductCategories(page)"></pager-directive>
         </div>
         <!-- /.card-footer-->
     </div>

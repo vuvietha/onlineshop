@@ -63,5 +63,29 @@ namespace OnlineShop.Web.Infrastructure.Extensions
             productCategory.Status = productCategoryVM.Status;
 
         }
+        public static void UpdateProduct(this Product product, ProductViewModel productVM)
+        {
+            product.ID = productVM.ID;
+            product.Name = productVM.Name;
+            product.Alias = productVM.Alias;
+            product.CategoryID = productVM.CategoryID;
+            product.Image = productVM.Image;
+            product.MoreImage = productVM.MoreImage;
+            product.Price = productVM.Price;
+            product.PromotionPrice = productVM.PromotionPrice;
+            product.Warranty = productVM.Warranty;
+            product.Description = productVM.Description;
+            product.Content = productVM.Content;
+            product.HomeFlag = productVM.HomeFlag;
+            product.HotFlag = productVM.HotFlag;
+            product.ViewCount = productVM.ViewCount;
+            product.CreatedDate = productVM.CreatedDate;
+            product.CreatedBy = productVM.CreatedBy;
+            product.UpdatedDate = productVM.UpdatedDate;
+            product.UpdatedBy = productVM.UpdatedBy;
+            product.MetaKeyword = productVM.MetaKeyword;
+            product.MetaDescription = productVM.MetaDescription;
+
+        }
     }
 }
