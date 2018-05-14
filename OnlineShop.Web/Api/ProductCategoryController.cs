@@ -65,7 +65,7 @@ namespace OnlineShop.Web.Api
             return CreateHttpResponse(request, () =>
             {
                 var productCategory = _productCategoryService.GetById(id);
-                var responseData = Mapper.Map<List<ProductCategoryViewModel>>(productCategory);
+                var responseData = Mapper.Map<ProductCategoryViewModel>(productCategory);
                 HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, responseData);
                 return response;
             });
@@ -98,7 +98,7 @@ namespace OnlineShop.Web.Api
 
         }
         [Route("update")]
-        [HttpPost]
+        [HttpPut]
         [AllowAnonymous]
         public HttpResponseMessage Update(HttpRequestMessage request, ProductCategoryViewModel productCategoryViewModel)
         {

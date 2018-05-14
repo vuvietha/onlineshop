@@ -68,7 +68,7 @@
                                 <!--class="badge bg-danger"-->
                                 <td><span ng-class="{'badge bg-danger':item.Status==false,'badge bg-success':item.Status==true}">{{item.Status | statusFilter}}</span></td>
                                 <td>
-                                    <button class="btn-sm btn-primary"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn-sm btn-primary" ui-sref="productcategory_edit({id:item.ID})"><i class="fa fa-pencil"></i></button>
                                     <button class="btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>

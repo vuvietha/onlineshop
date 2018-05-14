@@ -3,14 +3,14 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Thêm mới</h1>
+                <h1>Cập nhật danh mục: {{productCategory.Name}}</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
                     <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
                     <li class="breadcrumb-item"><a ui-sref="product_categories">Danh mục sản phẩm</a></li>
-                    <li class="breadcrumb-item active">Thêm mới</li>
+                    <li class="breadcrumb-item active">Cập nhật</li>
                 </ol>
             </div>
         </div>
@@ -20,11 +20,11 @@
 <section class="content">
     <div class="card card-info">
         <div class="card-header">
-            <h3 class="card-title">Thêm mới</h3>
+            <h3 class="card-title"> {{productCategory.Name}}</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form class="form-horizontal" novalidate name="frmAddProductCategory" role="form" ng-submit="AddProductCategory()">
+        <form class="form-horizontal" novalidate name="frmEditProductCategory" role="form" ng-submit="UpdateProductCategory()">
             <div class="card-body">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">Tên danh mục</label>
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="parentCategory">Danh mục cha</label>
                     <select class="form-control col-sm-10" name="parentCategory" ng-model="productCategory.ParentID" ng-options="option.ID as option.Name for option in parentCategories ">
-                        <option value="">Danh mục gốc</option>                  
+                        <option value="">Danh mục gốc</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -85,7 +85,7 @@
             <!-- /.card-body -->
             <div class="card-footer">
                 <button type="submit" class="btn btn-info">Lưu </button>
-                <button class="btn btn-default" ui-sref ="product_categories">Hủy</button>
+                <button class="btn btn-default" ui-sref="product_categories">Hủy</button>
             </div>
             <!-- /.card-footer -->
         </form>
