@@ -32,10 +32,17 @@
                 notificationService.displaySuccess("Thêm mới " + $scope.product.Name + " thành công");
                 $state.go('products');
             }, function (error) {
-                notificationService.diplayError("Thêm mới không thành công");
+                notificationService.displayError("Thêm mới không thành công");
             });
 
         };
+        $scope.ChooseImage = function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $scope.product.Image = fileUrl;
+            }
+            finder.popup();
+        }
         GetProductCategories();
       
 
