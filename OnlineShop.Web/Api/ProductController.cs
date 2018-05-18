@@ -136,6 +136,7 @@ namespace OnlineShop.Web.Api
                 else
                 {
                     Product product = _productService.GetById(productViewModel.ID);
+                    product.UpdatedDate = DateTime.Now;
                     product.UpdateProduct(productViewModel);
                     _productService.Update(product);
                     _productService.SaveChanges();

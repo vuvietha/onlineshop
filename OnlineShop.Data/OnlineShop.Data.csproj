@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201805050908599_addaspnetidentity.Designer.cs">
       <DependentUpon>201805050908599_addaspnetidentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805150816034_AddTagField.cs" />
+    <Compile Include="Migrations\201805150816034_AddTagField.Designer.cs">
+      <DependentUpon>201805150816034_AddTagField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805050908599_addaspnetidentity.resx">
       <DependentUpon>201805050908599_addaspnetidentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805150816034_AddTagField.resx">
+      <DependentUpon>201805150816034_AddTagField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

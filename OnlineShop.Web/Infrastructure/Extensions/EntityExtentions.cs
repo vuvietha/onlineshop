@@ -85,6 +85,8 @@ namespace OnlineShop.Web.Infrastructure.Extensions
             product.UpdatedBy = productVM.UpdatedBy;
             product.MetaKeyword = productVM.MetaKeyword;
             product.MetaDescription = productVM.MetaDescription;
+            product.Tags = productVM.Tags;
+            product.Status = productVM.Status;
 
         }
     }

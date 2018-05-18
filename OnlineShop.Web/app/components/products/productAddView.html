@@ -82,6 +82,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="image" class="col-sm-2 control-label">Thêm ảnh</label>
+                    <div class="col-sm-10">
+                        <ul class= "list-inline">
+                            <li class="list-inline-item" ng-repeat="image in moreImage"><img width="100" ng-src="{{image}}" /></li>
+                        </ul>                  
+                        <button class="btn btn-default" type="button" ng-click="ChooseMoreImage()">Chọn ảnh</button>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="promotionPrice" class="col-sm-2 control-label">Giá KM</label>
                     <div class="col-sm-10">
                         <input type="number" class="form-control" name="promotionPrice" ng-model="product.PromotionPrice">
@@ -93,11 +102,16 @@
                         <textarea type="text" class="form-control" ckeditor="ckeditorOptions" rows="3" name="content" ng-model="product.Content"></textarea>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label for="metaKeyword" class="col-sm-2 control-label">Tags</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="tags" ng-model="product.Tags"></input>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="metaKeyword" class="col-sm-2 control-label">MetaKeyword</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" rows="3" name="metaKeyword" ng-model="product.MetaKeyword"></textarea>
+                        <input type="text" class="form-control" name="metaKeyword" ng-model="product.MetaKeyword"></input>
                     </div>
                 </div>
 
