@@ -15,6 +15,7 @@ using System.Web.Script.Serialization;
 namespace OnlineShop.Web.Api
 {
     [RoutePrefix("api/product")]
+    [Authorize]
     public class ProductController : ApiControllerBase
     {
         #region initilize
@@ -110,6 +111,7 @@ namespace OnlineShop.Web.Api
                 {
                     Product product = new Product();
                     product.UpdateProduct(productViewModel);
+                    product.CreatedBy = User.Identity.Name;
                     _productService.Add(product);
                     _productService.SaveChanges();
                     var responseData = Mapper.Map<ProductViewModel>(product);
@@ -138,6 +140,7 @@ namespace OnlineShop.Web.Api
                     Product product = _productService.GetById(productViewModel.ID);
                     product.UpdatedDate = DateTime.Now;
                     product.UpdateProduct(productViewModel);
+                    product.UpdatedBy = User.Identity.Name;
                     _productService.Update(product);
                     _productService.SaveChanges();
                     var responseData = Mapper.Map<ProductViewModel>(product);

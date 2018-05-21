@@ -6,15 +6,18 @@
         $stateProvider.state('product_categories', {
             url: "/product_categories",
             templateUrl: "/app/components/product_categories/productCategoryListView.html",
-            controller: "productCategoryListController"
+            controller: "productCategoryListController",
+            parent:"base"
         }).state('productcategory_add', {
             url: "/productcategory_add",
             templateUrl: "/app/components/product_categories/productCategoryAddView.html",
-            controller: "productCategoryAddController"
+            controller: "productCategoryAddController",
+            parent: "base"
         }).state('productcategory_edit', {
             url: "/productcategory_edit:id",
             templateUrl: "/app/components/product_categories/productCategoryEditView.html",
-            controller: "productCategoryEditController"
+            controller: "productCategoryEditController",
+            parent: "base"
         });
 
     }
