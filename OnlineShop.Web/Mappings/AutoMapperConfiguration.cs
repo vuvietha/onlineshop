@@ -16,6 +16,7 @@ namespace OnlineShop.Web.Mappings
             Mapper.CreateMap<PostCategory, PostCategoryViewModel>();
             Mapper.CreateMap<Product, ProductViewModel>();
             Mapper.CreateMap<ProductCategory, ProductCategoryViewModel>();
+            Mapper.CreateMap<Footer, FooterViewModel>();
         }
     }
 }
