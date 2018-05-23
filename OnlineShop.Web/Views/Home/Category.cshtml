@@ -25,8 +25,8 @@
                             if (childCategories == null || !childCategories.Any())
                             {
 
-
-                                <li><a href = "#"> @category.Name </a></li>
+                                var url = "/" + category.Alias + ".pc-" + category.ID + ".html";
+                                <li><a href = "@url"> @category.Name </a></li>
 
 
                             }
@@ -39,7 +39,8 @@
                                             <ul>
                                                 @foreach (var child in childCategories)
                                                 {
-                                                    <li><a href="drinks.html">@child.Name</a></li>
+                                                    var childUrl = "/" + child.Alias + ".pc-" + child.ID + ".html";
+                                                    <li><a href="@childUrl">@child.Name</a></li>
 
                                                 }
 
@@ -54,12 +55,6 @@
                     }
                 }
             </ul>
-
-
-
-
-
-
 
         </div><!-- /.navbar-collapse -->
     </nav>
