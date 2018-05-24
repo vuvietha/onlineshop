@@ -17,7 +17,8 @@
 
         protected override void Seed(OnlineShop.Data.OnlineShopDbContext context)
         {
-            CreateProductCategory(context);
+            //CreateProductCategory(context);
+            CreateSlides(context);
             //  This method will be called after migrating to the latest version.
 
             //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new OnlineShopDbContext()));
@@ -58,6 +59,49 @@
                 context.ProductCategories.AddRange(list);
                 context.SaveChanges();
             }
+        }
+
+        private void CreateSlides(OnlineShopDbContext context)
+        {
+            if (context.Slides.Count() == 0)
+            {
+                List<Slide> list = new List<Slide>()
+                {
+                    new Slide() {Name="slide1",
+                        DisplayOrder = 1,URL="#",
+                        Image ="/Assets/client/images/1.jpg",
+                        Content =@"<div class='contentSlide w3l_banner_nav_right_banner'>
+                                    <h3>Make your <span>food</span> with Spicy.</h3>
+                                    <div class='more'>
+                                        <a href = 'products.html' class='button--saqui button--round-l button--text-thick' data-text='Shop now'>Shop now</a>
+                                    </div>
+                                    </div>" },
+                    new Slide() {Name="slide2",
+                        DisplayOrder = 2,
+                        URL ="#",
+                        Image ="/Assets/client/images/2.jpg",
+                        Content =@"<div class='contentSlide w3l_banner_nav_right_banner'>
+                                    <h3>Make your <span>food</span> with Spicy.</h3>
+                                    <div class='more'>
+                                        <a href = 'products.html' class='button--saqui button--round-l button--text-thick' data-text='Shop now'>Shop now</a>
+                                    </div>
+                                    </div>" },
+                     new Slide() {Name="slide3",
+                        DisplayOrder = 3,
+                        URL ="#",
+                        Image ="/Assets/client/images/3.jpg",
+                        Content =@"<div class='contentSlide w3l_banner_nav_right_banner'>
+                                     <h3>upto <i>50%</i> off.</h3>
+                                    <div class='more'>
+                                        <a href = 'products.html' class='button--saqui button--round-l button--text-thick' data-text='Shop now'>Shop now</a>
+                                    </div>
+                                    </div>" }
+                };
+                context.Slides.AddRange(list);
+                context.SaveChanges();
+            }
+           
+
         }
     }
 }

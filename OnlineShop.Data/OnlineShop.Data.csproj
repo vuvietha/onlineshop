@@ -84,6 +84,10 @@
     <Compile Include="Migrations\201805150816034_AddTagField.Designer.cs">
       <DependentUpon>201805150816034_AddTagField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805230914247_addSlide.cs" />
+    <Compile Include="Migrations\201805230914247_addSlide.Designer.cs">
+      <DependentUpon>201805230914247_addSlide.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineShopDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805150816034_AddTagField.resx">
       <DependentUpon>201805150816034_AddTagField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805230914247_addSlide.resx">
+      <DependentUpon>201805230914247_addSlide.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

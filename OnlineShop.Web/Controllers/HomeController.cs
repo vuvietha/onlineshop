@@ -23,7 +23,18 @@ namespace OnlineShop.Web.Controllers
         }
         public ActionResult Index()
         {
-            return View();
+            HomeViewModel model = new HomeViewModel();
+            var slideList = _commonService.GetSlide();
+            var slideListVM = Mapper.Map<IEnumerable<SlideViewModel>>(slideList);
+            List<Product> lastestProductList = _commonService.GetLastestProducts().ToList();
+            var hotProductList = _commonService.GetHotProducts();
+            List<ProductViewModel> lastestProductListVM = Mapper.Map<List<ProductViewModel>>(lastestProductList);
+            var hotProductListVM = Mapper.Map<IEnumerable<ProductViewModel>>(hotProductList);
+            model.slideViewModel = slideListVM;
+            model.lastestProductList = lastestProductListVM;
+            model.hotProductList = hotProductListVM;
+            
+            return View(model);
         }
 
         public ActionResult About()
@@ -40,6 +51,7 @@ namespace OnlineShop.Web.Controllers
             return View();
         }
 
+        [ChildActionOnly]
         public ActionResult Header()
         {
             return PartialView();
@@ -53,6 +65,7 @@ namespace OnlineShop.Web.Controllers
             return PartialView(model);
         }
 
+        [ChildActionOnly]
         public ActionResult Category()
         {
             var data = _productCategoryService.GetAll();

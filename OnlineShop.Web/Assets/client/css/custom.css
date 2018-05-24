@@ -1,0 +1,27 @@
+﻿@import url("style.css");
+.slideItem{
+    position:relative;
+
+}
+.imgSlide {
+    /*position:absolute;
+    left:0;
+    top:0;*/
+    
+
+}
+.contentSlide{
+    position:absolute;
+    top:-30px;
+}
+.w3l_banner_nav_right_banner{
+    background:none;
+}
+.imgItem{
+    width:100%;
+    height:300px;
+}
+
+.imgHotItem{
+    height:200px;
+}

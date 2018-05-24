@@ -1,32 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace OnlineShop.Model.Models
+namespace OnlineShop.Web.Models
 {
-    [Table("Slides")]
-    public class Slide
+    public class SlideViewModel
     {
-        [Key]
+      
         public int ID { get; set; }
-
-        [Required]
-        [MaxLength(256)]
+    
         public string Name { get; set; }
-
-        [MaxLength(500)]
+     
         public string Description { get; set; }
-
-        [Required]
-        [MaxLength(256)]
+    
         public string Image { get; set; }
 
-        [Required]
-        [MaxLength(256)]
         public string URL { get; set; }
 
         public int? DisplayOrder { get; set; }

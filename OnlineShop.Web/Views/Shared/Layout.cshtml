@@ -18,7 +18,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- //for-mobile-apps -->
     <link href="/Assets/client/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    @*<link href="/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="/Assets/client/css/custom.css" rel="stylesheet" type="text/css" />
     <!-- font-awesome icons -->
     <link href="/Assets/client/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
     <!-- //font-awesome icons -->
@@ -43,6 +44,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
     @{Html.RenderAction("Header", "Home");}
+    <!-- banner -->
+    <div class="banner">
+        @{ Html.RenderAction("Category", "Home");}
+        @RenderSection("homeSlides",required:false)
+    </div>
+    <!-- banner -->
     @RenderBody();
     @{Html.RenderAction("Footer", "Home");}
     <!-- Bootstrap Core JavaScript -->
@@ -100,5 +107,6 @@ $(document).ready(function(){
 		});
 
     </script>
+    @RenderSection("footerJS",required:false)
 </body>
 </html>
