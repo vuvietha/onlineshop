@@ -52,14 +52,15 @@
         {
             foreach (var item in Model.lastestProductList)
             {
-        <div class="col-md-4 wthree_banner_bottom_left">
-            <div class="wthree_banner_bottom_left_grid">
-                <img src="@item.Image" alt="" class="img-responsive imgItem" />
-                <div class="wthree_banner_bottom_left_grid_pos">
-                    <h4>Discount Offer <span>25%</span></h4>
+                var url = "/" + @item.Alias + ".p-" + @item.ID + ".html";
+                <div class="col-md-4 wthree_banner_bottom_left">
+                    <div class="wthree_banner_bottom_left_grid">
+                        <a href="@url"><img src="@item.Image" alt="" class="img-responsive imgItem" /></a>
+                        <div class="wthree_banner_bottom_left_grid_pos">
+                            <h4>Discount Offer <span>25%</span></h4>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
             }
 
         }
@@ -76,39 +77,40 @@
             {
                 foreach (var item in Model.hotProductList)
                 {
-            <div class="col-md-3 top_brand_left">
-                <div class="hover14 column">
-                    <div class="agile_top_brand_left_grid">
-                        <div class="agile_top_brand_left_grid1">
-                            <figure>
-                                <div class="snipcart-item block">
-                                    <div class="snipcart-thumb">
-                                        <a href="single.html"><img title="" alt="" src="@item.Image" class="img-responsive imgHotItem" /></a>
-                                        <p>basmati rise (5 Kg)</p>
-                                        <h4>$11.99 <span>$15.00</span></h4>
-                                    </div>
-                                    <div class="snipcart-details top_brand_home_details">
-                                        <form action="#" method="post">
-                                            <fieldset>
-                                                <input type="hidden" name="cmd" value="_cart" />
-                                                <input type="hidden" name="add" value="1" />
-                                                <input type="hidden" name="business" value=" " />
-                                                <input type="hidden" name="item_name" value="basmati rise" />
-                                                <input type="hidden" name="amount" value="11.99" />
-                                                <input type="hidden" name="discount_amount" value="1.00" />
-                                                <input type="hidden" name="currency_code" value="USD" />
-                                                <input type="hidden" name="return" value=" " />
-                                                <input type="hidden" name="cancel_return" value=" " />
-                                                <input type="submit" name="submit" value="Add to cart" class="button" />
-                                            </fieldset>
-                                        </form>
-                                    </div>
+                    var url = "/" + @item.Alias + ".p-" + @item.ID + ".html";
+                    <div class="col-md-3 top_brand_left">
+                        <div class="hover14 column">
+                            <div class="agile_top_brand_left_grid">
+                                <div class="agile_top_brand_left_grid1">
+                                    <figure>
+                                        <div class="snipcart-item block">
+                                            <div class="snipcart-thumb">
+                                                <a href="@url"><img title="" alt="" src="@item.Image" class="img-responsive imgHotItem" /></a>
+                                                <p>basmati rise (5 Kg)</p>
+                                                <h4>$11.99 <span>$15.00</span></h4>
+                                            </div>
+                                            <div class="snipcart-details top_brand_home_details">
+                                                <form action="#" method="post">
+                                                    <fieldset>
+                                                        <input type="hidden" name="cmd" value="_cart" />
+                                                        <input type="hidden" name="add" value="1" />
+                                                        <input type="hidden" name="business" value=" " />
+                                                        <input type="hidden" name="item_name" value="basmati rise" />
+                                                        <input type="hidden" name="amount" value="11.99" />
+                                                        <input type="hidden" name="discount_amount" value="1.00" />
+                                                        <input type="hidden" name="currency_code" value="USD" />
+                                                        <input type="hidden" name="return" value=" " />
+                                                        <input type="hidden" name="cancel_return" value=" " />
+                                                        <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </figure>
                                 </div>
-                            </figure>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
                 }
             }
