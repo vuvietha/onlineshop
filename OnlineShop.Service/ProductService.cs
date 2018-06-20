@@ -4,6 +4,7 @@ using OnlineShop.Model.Models;
 using System.Collections.Generic;
 using System;
 using OnlineShop.Common;
+using System.Linq;
 
 namespace OnlineShop.Service
 {
@@ -20,6 +21,8 @@ namespace OnlineShop.Service
         IEnumerable<Product> GetAll(string keywork);
 
         IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow);
+
+        IEnumerable<Product> GetAllProductsPagingByCatId(int catId, int page, int pageSize, out int totalRow);
 
         Product GetById(int id);
 
@@ -93,6 +96,13 @@ namespace OnlineShop.Service
         public IEnumerable<Product> GetAllPaging(int page, int pageSize, out int totalRow)
         {
             return _productRepository.GetMultiPaging(x => x.HomeFlag ?? false, out totalRow, page, pageSize);
+        }
+
+        public IEnumerable<Product> GetAllProductsPagingByCatId(int catId, int page, int pageSize, out int totalRow)
+        {
+            var query = _productRepository.GetMulti(x => x.Status && x.CategoryID == catId);
+            totalRow = query.Count();
+            return query.Skip((page - 1) * pageSize).Take(pageSize);       
         }
 
         public Product GetById(int id)
